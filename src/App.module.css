@@ -21,7 +21,7 @@
   min-width: 800px;
 }
 
-.kg-container{
+.kgContainer{
 
   text-align: left;
   max-width: 1000px;
@@ -39,4 +39,5 @@
   display: flex;
   justify-content: center;
   align-items: center; 
+  margin: 20px;
 }
