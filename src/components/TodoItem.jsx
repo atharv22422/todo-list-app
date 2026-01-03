@@ -1,6 +1,11 @@
 import styles from "./TodoItem.module.css";
 
-function TodoItem({ TodoDate, TodoName }) {
+function TodoItem({
+  TodoDate,
+  TodoName,
+  handleOnDeleteButtonClicked,
+  TodoState,
+}) {
   // let ItemName = "buy fish";
   // let ItemDate = "4/10/2025";
   return (
@@ -9,9 +14,16 @@ function TodoItem({ TodoDate, TodoName }) {
         <div className="col-6">{TodoName}</div>
         <div className="col-4">{TodoDate}</div>
         <div className="col-2">
-          <button type="button" className={`btn btn-danger ${styles.KgButton}`}>
-            DELETE
-          </button>
+          {TodoState ? (
+            <span className={styles.completedLabel}>Completed</span>
+          ) : (
+            <button
+              className={`btn btn-danger ${styles.KgButton}`}
+              onClick={() => handleOnDeleteButtonClicked(TodoName, TodoDate)}
+            >
+              COMPLETE
+            </button>
+          )}
         </div>
       </div>
     </>

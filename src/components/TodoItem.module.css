@@ -8,3 +8,20 @@
   margin :10px;
   min-width: 800px;
 }
+
+
+
+.completedLabel {
+  display: inline-block;
+  width: 100%;
+  padding: 6px 0;
+  text-align: center;
+
+  color: #198754;             
+  font-weight: 600;
+  font-size: 14px;
+
+  background-color: #e9f7ef;   
+  border: 1px solid #198754;
+  border-radius: 6px;
+}

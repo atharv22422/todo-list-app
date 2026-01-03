@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-function TodoList({ TodoItems }) {
+function TodoList({ TodoItems, handleOnDeleteButtonClicked }) {
   return (
     <>
       {TodoItems.map((items, index) => (
@@ -8,6 +8,8 @@ function TodoList({ TodoItems }) {
           key={index}
           TodoName={items.name}
           TodoDate={items.date}
+          TodoState={items.completed}
+          handleOnDeleteButtonClicked={handleOnDeleteButtonClicked}
         ></TodoItem>
       ))}
     </>

@@ -24,14 +24,17 @@ function App() {
     {
       name: "buy milk",
       date: "2026-01-03",
+      completed: false,
     },
     {
       name: "buy fish",
       date: "2026-01-03",
+      completed: false,
     },
     {
       name: "buy drink",
       date: "2026-01-03",
+      completed: false,
     },
   ]);
 
@@ -59,6 +62,20 @@ function App() {
     setTodoItemName("");
   };
 
+  const OnDeleteButtonClicked = (TodoName, TodoDate) => {
+    setTodoItems((prevItems) =>
+      prevItems.map((item) => {
+        if (item.name === TodoName && item.date === TodoDate) {
+          return {
+            ...item,
+            completed: true,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <>
       <div className={styles.screen}>
@@ -72,7 +89,10 @@ function App() {
               TodoItemDate={TodoItemDate}
               TodoItemName={TodoItemName}
             />
-            <TodoList TodoItems={TodoItems} />
+            <TodoList
+              TodoItems={TodoItems}
+              handleOnDeleteButtonClicked={OnDeleteButtonClicked}
+            />
           </div>
         </div>
       </div>
