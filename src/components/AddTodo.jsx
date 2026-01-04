@@ -1,4 +1,5 @@
 import styles from "./AddTodo.module.css";
+import { IoIosAddCircle } from "react-icons/io";
 
 function AddTodo({
   handleOnTextChange,
@@ -33,7 +34,7 @@ function AddTodo({
             className={`btn btn-success ${styles.KgButton}`}
             onClick={handleOnAddButtonClicked}
           >
-            ADD
+            <IoIosAddCircle />
           </button>
         </div>
       </div>

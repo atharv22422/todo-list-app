@@ -1,4 +1,5 @@
 import styles from "./TodoItem.module.css";
+import { MdDeleteForever } from "react-icons/md";
 
 function TodoItem({
   TodoDate,
@@ -21,7 +22,7 @@ function TodoItem({
               className={`btn btn-danger ${styles.KgButton}`}
               onClick={() => handleOnDeleteButtonClicked(TodoName, TodoDate)}
             >
-              COMPLETE
+              <MdDeleteForever />
             </button>
           )}
         </div>

@@ -51,6 +51,10 @@ function App() {
   };
 
   const OnAddButtonClicked = () => {
+    if (!TodoItemName || !TodoItemDate) {
+      return;
+    }
+
     setTodoItems((prevItems) => [
       ...prevItems,
       {
@@ -58,6 +62,7 @@ function App() {
         date: TodoItemDate,
       },
     ]);
+
     setTodoItemDate("");
     setTodoItemName("");
   };
