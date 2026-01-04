@@ -2,7 +2,7 @@ import TodoHeading from "./components/TodoHeading";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
 import styles from "./App.module.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function App() {
   // let TodoItems = [
@@ -38,35 +38,6 @@ function App() {
     },
   ]);
 
-  const [TodoItemName, setTodoItemName] = useState("");
-
-  const [TodoItemDate, setTodoItemDate] = useState("");
-
-  const OnDateChange = (event) => {
-    setTodoItemDate(event.target.value);
-  };
-
-  const OnTextChange = (event) => {
-    setTodoItemName(event.target.value);
-  };
-
-  const OnAddButtonClicked = () => {
-    if (!TodoItemName || !TodoItemDate) {
-      return;
-    }
-
-    setTodoItems((prevItems) => [
-      ...prevItems,
-      {
-        name: TodoItemName,
-        date: TodoItemDate,
-      },
-    ]);
-
-    setTodoItemDate("");
-    setTodoItemName("");
-  };
-
   const OnDeleteButtonClicked = (TodoName, TodoDate) => {
     setTodoItems((prevItems) =>
       prevItems.map((item) => {
@@ -87,13 +58,7 @@ function App() {
         <div className={styles.borderContainer}>
           <TodoHeading />
           <div className={`${styles.kgContainer} container`}>
-            <AddTodo
-              handleOnDateChange={OnDateChange}
-              handleOnTextChange={OnTextChange}
-              handleOnAddButtonClicked={OnAddButtonClicked}
-              TodoItemDate={TodoItemDate}
-              TodoItemName={TodoItemName}
-            />
+            <AddTodo setTodoItems={setTodoItems} />
             <TodoList
               TodoItems={TodoItems}
               handleOnDeleteButtonClicked={OnDeleteButtonClicked}
