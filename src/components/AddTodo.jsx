@@ -1,4 +1,6 @@
 import styles from "./AddTodo.module.css";
+import { useRef } from "react";
+
 import { IoIosAddCircle } from "react-icons/io";
 
 function AddTodo({ myTodoItemDate, myTodoItemName, handleOnAddButtonClicked }) {
@@ -19,7 +21,6 @@ function AddTodo({ myTodoItemDate, myTodoItemName, handleOnAddButtonClicked }) {
         <div className="col-2">
           <button
             type="button"
-            cd
             className={`btn btn-success ${styles.KgButton}`}
             onClick={handleOnAddButtonClicked}
           >
