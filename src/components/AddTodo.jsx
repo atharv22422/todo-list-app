@@ -1,13 +1,7 @@
 import styles from "./AddTodo.module.css";
 import { IoIosAddCircle } from "react-icons/io";
 
-function AddTodo({
-  handleOnTextChange,
-  handleOnDateChange,
-  handleOnAddButtonClicked,
-  TodoItemName,
-  TodoItemDate,
-}) {
+function AddTodo({ myTodoItemDate, myTodoItemName, handleOnAddButtonClicked }) {
   return (
     <>
       <div className={`row ${styles.KgRow}`}>
@@ -16,17 +10,11 @@ function AddTodo({
             type="text"
             className={styles.AddTodo}
             placeholder="enter the item"
-            value={TodoItemName}
-            onChange={handleOnTextChange}
+            ref={myTodoItemName}
           />
         </div>
         <div className="col-4">
-          <input
-            type="date"
-            className={styles.AddTodo}
-            value={TodoItemDate}
-            onChange={handleOnDateChange}
-          />
+          <input type="date" className={styles.AddTodo} ref={myTodoItemDate} />
         </div>
         <div className="col-2">
           <button
